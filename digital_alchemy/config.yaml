@@ -1,7 +1,8 @@
 name: "Digital Alchemy"
-description: "Digital Alchemy deployment runner"
+description: "Digital Alchemy code deployment runner"
 version: "24.7.1"
 slug: "digital_alchemy"
+url: https://github.com/Digital-Alchemy-TS/addons/tree/main/digital_alchemy
 init: false
 homeassistant_api: true
 arch:
@@ -10,8 +11,9 @@ arch:
   - armhf
   - armv7
   - i386
+
 options:
-  app_root: /share/home_automation
+  app_root: /share/digital_alchemy
 
 schema:
   app_root: str

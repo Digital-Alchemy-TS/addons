@@ -6,12 +6,6 @@ It comes with `Node20`, and is intended for working with builds of `@digital-alc
 - [Project docs](https://docs.digital-alchemy.app)
 - [Discord](https://discord.gg/JkZ35Gv97Y)
 
-## Installation
-
-You can install this addon manually by ....
-
-<!-- FIXME!! -->
-
 ## Usage
 
 ### 🏗️ Creating Builds
