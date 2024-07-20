@@ -1,3 +1,8 @@
+## 24.7.2
+
+- add config for main
+- add config for `NODE_ENV`
+
 ## 24.7.1
 
 - Move from local addon to separate repo

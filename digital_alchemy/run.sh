@@ -3,6 +3,8 @@
 
 # Fetch configuration options
 APP_ROOT=$(bashio::config 'app_root')
+APP_MAIN=$(bashio::config 'main')
+APP_ENV=$(bashio::config 'node_env')
 
 # Navigate to the app root
 cd "${APP_ROOT}" || bashio::exit.nok "Could not navigate to application root: ${APP_ROOT}"
@@ -20,4 +22,4 @@ yarn install
 PACKAGE_NAME=$(jq -r '.name' package.json)
 bashio::log.info "Starting ${PACKAGE_NAME}..."
 
-node deploy/src/main.js
+NODE_ENV="$APP_ENV" node "$APP_MAIN"

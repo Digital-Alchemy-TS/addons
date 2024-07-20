@@ -1,6 +1,6 @@
 name: "Digital Alchemy"
 description: "Digital Alchemy code deployment runner"
-version: "24.7.1"
+version: "24.7.2"
 slug: "digital_alchemy"
 url: https://github.com/Digital-Alchemy-TS/addons/tree/main/digital_alchemy
 init: false
@@ -14,9 +14,13 @@ arch:
 
 options:
   app_root: /share/digital_alchemy
+  main: src/main.js
+  node_env: production
 
 schema:
   app_root: str
+  main: str
+  node_env: str
 
 map:
   - share:rw
