@@ -15,15 +15,18 @@ arch:
 options:
   app_root: /share/digital_alchemy
   main: src/main.js
-  node_env: production
 
 schema:
   app_root: str
   main: str
-  node_env: str
 
 map:
   - share:rw
+  - backup:rw
+  - config:rw
+
+environment:
+  NODE_ENV: production
 
 ports:
   3000/tcp: 3000
