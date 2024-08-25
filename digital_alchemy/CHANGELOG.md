@@ -1,4 +1,8 @@
-## 24.8.2
+## 24.8.3
+
+- getting it right
+
+## 24.8.1
 
 - add support for arm / raspberry pi devices
 
