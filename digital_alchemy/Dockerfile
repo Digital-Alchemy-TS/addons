@@ -1,9 +1,8 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-RUN apk add --no-cache curl nodejs npm
-
-RUN npm i -g tsx nodemon
+COPY install.sh /
+RUN /install.sh
 
 # Copy data for add-on
 COPY run.sh /
