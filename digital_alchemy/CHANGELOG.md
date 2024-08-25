@@ -1,3 +1,7 @@
+## 24.8.2
+
+- add support for arm / raspberry pi devices
+
 ## 24.7.2
 
 - add config for main
