@@ -1,6 +1,6 @@
 name: "Code Runner"
 description: "Digital Alchemy code deployment runner"
-version: "24.8.3"
+version: "24.9.1"
 slug: "code_runner"
 url: https://github.com/Digital-Alchemy-TS/addons/tree/main/code_runner
 init: false
@@ -14,13 +14,15 @@ arch:
 
 options:
   app_root: /share/digital_alchemy
-  main: src/main.js
+  main: src/main.ts
   node_env: production
+  run_mode: tsx
 
 schema:
   app_root: str
   main: str
   node_env: str
+  run_mode: list(node|tsx)
 
 map:
   - share:rw
