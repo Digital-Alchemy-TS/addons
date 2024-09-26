@@ -4,4 +4,4 @@ configuration:
     description: Path to the folder containing package.json
   main:
     name: Entrypoint File
-    description: Make sure to use .js extension
+    description: Path to main.ts. Can be in your /config folder
