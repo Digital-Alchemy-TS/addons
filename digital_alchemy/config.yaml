@@ -16,11 +16,13 @@ options:
   app_root: /share/digital_alchemy
   main: src/main.js
   node_env: production
+  run_mode: tsx
 
 schema:
   app_root: str
   main: str
   node_env: str
+  run_mode: list(node|tsx)
 
 map:
   - share:rw

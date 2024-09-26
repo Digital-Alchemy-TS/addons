@@ -1,3 +1,14 @@
+## 24.9.1
+
+- Added support for tsx runtime.
+
+> ⚠️ node runtime is now legacy/deprecated, please update code
+
+`@digital-alchemy` has internally converted to `esm` exports. This update provides a compatible code runner experience.
+
+- [Updated deploy script](https://raw.githubusercontent.com/Digital-Alchemy-TS/haos-template/refs/heads/main/scripts/deploy.sh)
+- [ESM Migration Guide](https://docs.digital-alchemy.app/esm-migration)
+
 ## 24.8.3
 
 - getting it right
