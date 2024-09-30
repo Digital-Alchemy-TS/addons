@@ -1,3 +1,7 @@
+## 24.9.2
+
+- Added support for adding additional Alpine packages (e.g. git) to the runner on startup.
+
 ## 24.9.1
 
 - Added support for tsx runtime.
