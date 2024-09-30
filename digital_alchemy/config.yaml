@@ -17,12 +17,15 @@ options:
   main: src/main.ts
   node_env: production
   run_mode: tsx
+  packages: []
 
 schema:
   app_root: str
   main: str
   node_env: str
   run_mode: list(node|tsx)
+  packages:
+    - str
 
 map:
   - share:rw

@@ -1,6 +1,18 @@
 #!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
 
+# Install user configured/requested packages
+if bashio::config.has_value 'packages'; then
+    apk update \
+        || bashio::exit.nok 'Failed updating Alpine packages repository indexes'
+
+    for package in $(bashio::config 'packages'); do
+        apk add "$package" \
+            || bashio::exit.nok "Failed installing package ${package}"
+    done
+fi
+
+
 # Fetch configuration options
 APP_ROOT=$(bashio::config 'app_root')
 APP_MAIN=$(bashio::config 'main')
