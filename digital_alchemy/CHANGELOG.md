@@ -1,3 +1,8 @@
+## 24.10.1
+
+- bump `node20.15` to `node22.10` (x86)
+- add experimental `bun` runtime support
+
 ## 24.9.2
 
 - Added support for adding additional Alpine packages (e.g. git) to the runner on startup.
