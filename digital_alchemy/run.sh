@@ -12,38 +12,50 @@ if bashio::config.has_value 'packages'; then
     done
 fi
 
-
 # Fetch configuration options
 APP_ROOT=$(bashio::config 'app_root')
-APP_MAIN=$(bashio::config 'main')
-RUN_MODE=$(bashio::config 'run_mode')
+ENVIRONMENT=$(bashio::config 'environment')
+
+function prepareStart() {
+  if [[ -z $(jq -r '.scripts.start // empty' 'package.json') ]]; then
+    bashio::exit.nok "No start script found in package.json"
+  fi
+
+  PACKAGE_NAME=$(jq -r '.name' package.json)
+  bashio::log.info "Starting ${PACKAGE_NAME}..."
+}
 
 # Navigate to the app root
 cd "${APP_ROOT}" || bashio::exit.nok "Could not navigate to application root: ${APP_ROOT}"
 # Validate package.json exists
 if [[ ! -f "package.json" ]]; then
-  bashio::exit.nok "package.json not found in APP_ROOT:'${APP_ROOT}'"
+  bashio::exit.nok "package.json not found in APP_ROOT: '${APP_ROOT}'"
 fi
 
- if [[ "${RUN_MODE}" == "bun" ]]; then
-  # npm install -g bun
-  bun --version
-  bun install
-  bun run "$APP_MAIN"
-else
-  corepack enable && corepack prepare yarn@stable --activate
-  yarn config set compressionLevel mixed
-  yarn config set nodeLinker node-modules
-  yarn install
-
-  # Extract package name from package.json
-  PACKAGE_NAME=$(jq -r '.name' package.json)
-  bashio::log.info "Starting ${PACKAGE_NAME}..."
-
-  # Check run_mode and execute the corresponding command
-  if [[ "${RUN_MODE}" == "tsx" ]]; then
-    npx tsx "$APP_MAIN"
+if [[ "${ENVIRONMENT}" == "node_npm" ]]; then
+  bashio::log.info "Installing dependencies..."
+  if [[ -f "package-lock.json" ]]; then
+    npm ci
   else
-    node "$APP_MAIN"
+    npm install
   fi
+  
+  prepareStart
+  bashio::log.info "  ...running npm start"
+  
+  npm start
+elif [[ "${ENVIRONMENT}" == "node_yarn" ]]; then
+  bashio::log.info "Installing dependencies..."
+  yarn install
+  
+  prepareStart
+  bashio::log.info "  ...running yarn start"
+  yarn start
+elif [[ "${ENVIRONMENT}" == "bun" ]]; then
+  bashio::log.info "Installing dependencies..."
+  bun install --frozen-lockfile --production
+  
+  prepareStart
+  bashio::log.info "  ...running bun run start"
+  bun run start
 fi
