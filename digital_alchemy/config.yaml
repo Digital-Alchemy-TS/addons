@@ -14,16 +14,14 @@ arch:
 
 options:
   app_root: /share/digital_alchemy
-  main: src/main.ts
   node_env: production
-  run_mode: tsx
+  environment: node_npm
   packages: []
 
 schema:
   app_root: str
-  main: str
   node_env: str
-  run_mode: list(node|tsx|bun)
+  environment: list(node_npm|node_yarn|bun|deno)
   packages:
     - str
 
