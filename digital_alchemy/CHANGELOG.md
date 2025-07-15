@@ -1,3 +1,8 @@
+## 25.2.1
+
+- set `bun` as default runtime
+- update default entrypoint to `src/main.mts`
+
 ## 24.10.1
 
 - bump `node20.15` to `node22.10` (x86)
