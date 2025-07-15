@@ -27,4 +27,4 @@ else
 fi
 
 ## 3) Install runtimes
-npm i -g tsx nodemon bun
+npm i -g corepack tsx nodemon bun
