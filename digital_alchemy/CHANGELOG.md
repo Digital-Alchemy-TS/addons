@@ -1,3 +1,7 @@
+## 25.7.1
+
+- added `corepack` to dependencies installed
+
 ## 25.2.1
 
 - set `bun` as default runtime
