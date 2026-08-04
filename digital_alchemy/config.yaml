@@ -2,15 +2,12 @@ name: "Code Runner"
 description: "Digital Alchemy code deployment runner"
 version: "25.7.1"
 slug: "code_runner"
-url: https://github.com/Digital-Alchemy-TS/addons/tree/main/code_runner
+url: https://github.com/Digital-Alchemy-TS/addons/tree/main/digital_alchemy
 init: false
 homeassistant_api: true
 arch:
   - aarch64
   - amd64
-  - armhf
-  - armv7
-  - i386
 
 options:
   app_root: /share/digital_alchemy
