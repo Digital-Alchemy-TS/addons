@@ -1,9 +1,12 @@
 # 🏃‍♀️ Digital Alchemy Code Runner
 
 This addon acts as a simple configurable execution container for applications based on Digital Alchemy.
-It comes with `Node20`, and is intended for working with builds of `@digital-alchemy` Home Automation applications.
+It defaults to the `bun` runtime, and also supports `node` and `tsx` via Alpine-packaged Node.js. It is intended for working with builds of `@digital-alchemy` Home Automation applications.
+
+Registry installs (npm / Yarn / Bun) skip package versions published in the last 48 hours as a supply-chain attack mitigation.
 
 - [Project docs](https://docs.digital-alchemy.app)
+- [Code Runner guide](https://docs.digital-alchemy.app/docs/home-automation/quickstart/haos/addon)
 - [Discord](https://discord.gg/JkZ35Gv97Y)
 
 ## Usage
@@ -40,7 +43,7 @@ yarn rollback
 ### 🔒 Providing Secrets
 
 `@digital-alchemy/core` has a built in configuration loader suitable for providing secrets to your application.
-A more complete description of the loader can be found in the [config documentation](https://docs.digital-alchemy.app/docs/core/configuration)
+A more complete description of the loader can be found in the [config and environment guide](https://docs.digital-alchemy.app/docs/core/guides/config-and-environment).
 
 Your application will automatically have access to Home Assistant within the addon, but if you wish to integrate with other tools that require API keys, these can be provided by several mechanisms.
 

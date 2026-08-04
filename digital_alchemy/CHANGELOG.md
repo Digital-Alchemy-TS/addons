@@ -1,3 +1,14 @@
+## 26.8.5
+
+- install Bun via the official installer and Alpine `nodejs`/`npm` on both arches
+- remove glibc workarounds, unofficial Node musl builds, and unused global packages (`nodemon`, npm-installed `bun`)
+- enforce a 48-hour minimum release age on registry installs (npm / Yarn / Bun)
+
+## 26.8.4
+
+- fix add-on `url` to point at `digital_alchemy/` (was a 404 for `code_runner/`)
+- limit supported architectures to `aarch64` and `amd64`
+
 ## 25.7.1
 
 - added `corepack` to dependencies installed
