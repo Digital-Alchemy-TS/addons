@@ -1,6 +1,6 @@
 name: "Code Runner"
 description: "Digital Alchemy code deployment runner"
-version: "25.7.1"
+version: "26.8.4"
 slug: "code_runner"
 url: https://github.com/Digital-Alchemy-TS/addons/tree/main/digital_alchemy
 init: false
