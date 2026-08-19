@@ -25,16 +25,20 @@ if [[ ! -f "package.json" ]]; then
   bashio::exit.nok "package.json not found in APP_ROOT:'${APP_ROOT}'"
 fi
 
- if [[ "${RUN_MODE}" == "bun" ]]; then
-  # npm install -g bun
+# Skip registry versions published in the last 48 hours (supply-chain cooldown).
+MIN_RELEASE_AGE_SECS=$((48 * 60 * 60))
+
+if [[ "${RUN_MODE}" == "bun" ]]; then
   bun --version
-  bun install
+  bun install --minimum-release-age "${MIN_RELEASE_AGE_SECS}"
   bun run "$APP_MAIN"
 else
   corepack enable && corepack prepare yarn@stable --activate
   yarn config set compressionLevel mixed
   yarn config set nodeLinker node-modules
+  yarn config set npmMinimalAgeGate "2d"
   yarn install
+
 
   # Extract package name from package.json
   PACKAGE_NAME=$(jq -r '.name' package.json)
